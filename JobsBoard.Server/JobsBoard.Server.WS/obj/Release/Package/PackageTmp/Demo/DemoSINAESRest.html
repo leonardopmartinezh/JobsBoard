@@ -1,0 +1,134 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Prueba Consumir SINAES-REST</title>
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    
+</head>
+<body>
+    <style>
+        table td {
+            border:solid 1px;
+        }
+    </style>
+<h1>Prueba Consumir SINAES-REST</h1>
+<h2>Catalogo de Temas y Fuentes</h2>
+<h3>Fuentes</h3>
+    <table id="tb_fuentes">
+        <thead>
+            <tr>
+                <td><strong>FuenteID </strong></td>
+                <td><strong>Nombre de Fuente</strong></td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <h3>Temas</h3>
+    <table id="tb_temas">
+        <thead>
+            <tr>
+                <td><strong>FuenteID </strong></td>
+                <td><strong>Nombre de Fuente</strong></td>
+                <td><strong>TemaID </strong></td>
+                <td><strong>Nombre de Tema</strong></td>
+                <td><strong>Año Min</strong></td>
+                <td><strong>Año Max</strong></td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <h3>Datos Fuente 2 Tema 205 Dep 01 Mun 0101</h3>
+    <span>La información se presenta en bloques de 5 años, dependiendo de la disponibilidad de la información</span>
+    <table id="tb_datos" >
+        <thead>
+            <tr>
+                <td><strong>Año </strong></td>
+                <td><strong>Tema</strong></td>
+                <td><strong>Sub Tema</strong></td>
+                <td><strong>Dep</strong></td>
+                <td><strong>Mun</strong></td>
+                <td><strong>Sexo</strong></td>
+                <td><strong>Etapa Vida</strong></td>
+                <td><strong>Cantidad</strong></td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        //EJEMPLO DE CONSUMO BASICO
+        var URL = "http://app.conna.gob.sv/sinaes-rest/api/ws/CatTemas?";
+        URL += "&jsoncallback=?";
+
+        $.ajax({
+            type: "GET",
+            url: URL,
+            data: {},
+            success: function (r) {
+                var fuentes = _.groupBy(r, function (d) { return d.FuenteID; });           
+                $.each(fuentes, function (i, f) {
+                    $("#tb_fuentes tbody").append("<tr><td>" + f[0].FuenteID + "</td><td>" + f[0].FuenteDsc + "</td></tr>");
+                    $.each(f, function (f, t) {
+                        $("#tb_temas tbody").append(
+                            "<tr><td>"
+                            + t.FuenteID
+                            + "</td><td>"
+                            + t.FuenteDsc
+                            + "</td><td>"
+                            + t.TemaID
+                            + "</td><td>"
+                            + t.TemaDsc
+                            + "</td><td>"
+                            + t.AnioMin
+                            + "</td><td>"
+                            + t.AnioMax
+                            + "</td></tr>"
+                            );
+                    });
+                });                
+            }
+        });
+
+        URL = "http://app.conna.gob.sv/sinaes-rest/api/ws/Estadisticas?";
+        URL += "&jsoncallback=?";
+        $.ajax({
+            type: "GET",
+            url: URL,
+            data: { FuenteID: 2,TemaID: 205,anio: 2009,DepID: '01', MunID: '0101'},
+            success: function (r) {
+                var Datos = _.sortBy(r, function (d) { return d.Anio; });
+
+                $.each(Datos, function (i, d) {
+                    $("#tb_datos tbody").append(
+                        "<tr><td>"
+                        + d.Anio
+                        + "</td><td>"
+                        + d.TemaDsc
+                        + "</td><td>"
+                        + d.TemaSubDsc
+                        + "</td><td>"
+                        + d.DepDsc
+                        + "</td><td>"
+                        + d.MunDsc
+                        + "</td><td>"
+                        + d.SexoDsc
+                        + "</td><td>"
+                        + d.EtapaVidaDsc
+                        + "</td><td>"
+                        + d.Cantidad
+                        + "</td></tr>"
+                        );
+                });
+            }
+        });
+
+    });
+
+
+</script>
+
+</body>
+</html>

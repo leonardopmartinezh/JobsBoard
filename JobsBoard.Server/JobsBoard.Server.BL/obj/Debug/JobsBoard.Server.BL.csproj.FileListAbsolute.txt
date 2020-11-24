@@ -1,0 +1,13 @@
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.BL\obj\Debug\JobsBoard.Server.BL.csprojResolveAssemblyReference.cache
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.BL\bin\Debug\JobsBoard.Server.BL.dll
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.BL\bin\Debug\JobsBoard.Server.BL.pdb
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.BL\bin\Debug\EntityFramework.dll
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.BL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.BL\bin\Debug\JobsBoard.Server.DL.dll
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.BL\bin\Debug\JobsBoard.Server.EL.dll
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.BL\bin\Debug\JobsBoard.Server.DL.pdb
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.BL\bin\Debug\JobsBoard.Server.EL.pdb
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.BL\bin\Debug\EntityFramework.xml
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.BL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.BL\obj\Debug\JobsBoard.Server.BL.dll
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.BL\obj\Debug\JobsBoard.Server.BL.pdb

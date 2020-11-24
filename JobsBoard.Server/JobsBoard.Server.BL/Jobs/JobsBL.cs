@@ -15,8 +15,9 @@ namespace JobsBoard.Server.BL
         public ReplyEL JobsListBL(Data01EL Data)
         {
             ReplyEL Re = new ReplyEL();
-            JobsList_Result val = cx.JobsList(Pagination);
-            if (val.RES == "OK")
+            UserBL us = new UserBL();
+            String val = us.ValUserTokentBL(Data.UsCuentaID,Data.UsToken);
+            if (val == "OK")
             {
                 Re.Reply = cx.JobsList(Data.Pagination);
                 Re.UsToken = Data.UsToken;
@@ -24,11 +25,106 @@ namespace JobsBoard.Server.BL
             }
             else
             {
-                Res.UsMsj = val.RES;
-                Res.UsCuentaID = -1;
+                Re.UsToken = Data.UsToken;
+                Re.UsCuentaID = Data.UsCuentaID;
+                Re.UsMsj = val;
+            }
+            
+            return Re;
+        }
+
+        public ReplyEL JobsListByIDBL(Data02EL Data)
+        {
+            ReplyEL Re = new ReplyEL();
+            UserBL us = new UserBL();
+            String val = us.ValUserTokentBL(Data.UsCuentaID, Data.UsToken);
+            if (val == "OK")
+            {
+                Re.Reply = cx.JobsListByID(Data.ID);
+                Re.UsToken = Data.UsToken;
+                Re.UsCuentaID = Data.UsCuentaID;
+            }
+            else
+            {
+                Re.UsToken = Data.UsToken;
+                Re.UsCuentaID = Data.UsCuentaID;
+                Re.UsMsj = val;
+            }            
+
+            return Re;
+        }
+
+        public ReplyEL JobsGETBL(Data02EL Data)
+        {
+            ReplyEL Re = new ReplyEL();
+            UserBL us = new UserBL();
+            String val = us.ValUserTokentBL(Data.UsCuentaID, Data.UsToken);
+            if (val == "OK")
+            {
+                Re.Reply = cx.JobsGET(Data.ID);
+                Re.UsToken = Data.UsToken;
+                Re.UsCuentaID = Data.UsCuentaID;
+            }
+            else
+            {
+                Re.UsToken = Data.UsToken;
+                Re.UsCuentaID = Data.UsCuentaID;
+                Re.UsMsj = val;
             }
 
-            return Res;
+            return Re;
+        }
+
+        //SV
+        //**************************************
+        public ReplyEL JobsSVBL(JobsEL Data)
+        {
+            ReplyEL Re = new ReplyEL();
+
+            UserBL us = new UserBL();
+            String val = us.ValUserTokentBL(Data.UpdUsuario, Data.UsToken);
+            if (val == "OK")
+            {
+                JobsValBL valData = new JobsValBL();
+                String valDataRes = valData.JobsValData(Data);
+                if (valDataRes == "OK")
+                {
+                    JobsSV_Result SV = cx.JobsSV(
+                        Data.JobID,
+                        Data.JobTitle,
+                        Data.JobDescription,
+                        Data.JobCreatedAt,
+                        Data.JobExpiresAt,
+
+                        Data.UpdUsuario
+                    ).SingleOrDefault();
+
+                    if (SV.Msg == "OK")
+                    {
+                        Re.Reply = cx.JobsGET(SV.ID);
+                    }
+                    else
+                    {
+                        Re.Reply = "ERROR";
+                        Re.UsMsj = SV.Msg;
+                    }
+
+                    Re.UsToken = Data.UsToken;
+                    Re.UsCuentaID = Data.UpdUsuario;
+                }
+                else
+                {
+                    Re.UsMsj = valDataRes;
+                    Re.UsToken = Data.UsToken;
+                    Re.UsCuentaID = Data.UpdUsuario;
+                }
+            }
+            else
+            {
+                Re.UsMsj = val;
+                Re.UsCuentaID = -1;
+            }
+
             return Re;
         }
     }
