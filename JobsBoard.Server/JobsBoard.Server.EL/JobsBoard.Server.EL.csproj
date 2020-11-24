@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="JobsEL.cs" />
     <Compile Include="ReplyEL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

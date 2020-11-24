@@ -30,9 +30,24 @@ namespace JobsBoard.Server.EL
         public String UsToken { get; set; }
 
 
-        public ReplyEL()
+        public Data01EL()
         {
             this.Pagination = -1;
+            this.UsCuentaID = -1;
+            this.UsToken = "";
+        }
+    }
+
+    public class Data02EL
+    {
+        public Int32 ID { get; set; }
+        public Int32 UsCuentaID { get; set; }
+        public String UsToken { get; set; }
+
+
+        public Data02EL()
+        {
+            this.ID = -1;
             this.UsCuentaID = -1;
             this.UsToken = "";
         }

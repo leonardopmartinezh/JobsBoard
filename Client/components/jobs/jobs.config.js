@@ -21,7 +21,7 @@ let jobConfig = {
             {
                 "id":"JobID",
                 "name":"ID",
-                "dsc":"",
+                "dsc":"id",
                 "type":"text",
                 "valida":["notNull","notNan"],
                 "disabled":true,
@@ -41,10 +41,10 @@ let jobConfig = {
                 "name":"Title",
                 "dsc":"",
                 "type":"text",
-                "valida":[],
+                "valida":["notNull"],
                 "disabled":true,
                 //"display":"d-none",
-                "value":"-1",
+                "value":"",
                 "isId": false,
                 "class":"",
                 "isValid":false,
@@ -60,7 +60,7 @@ let jobConfig = {
                 "valida":["notNull"],
                 "disabled":false,
                 //"display":"d-none",
-                "value":"-1",
+                "value":"",
                 "isId": false,
                 "class":"",
                 "isValid":false,
@@ -73,7 +73,7 @@ let jobConfig = {
                 "id":"JobCreatedAt",
                 "name":"Created At",
                 "dsc":"",
-                "type":"date",
+                "type":"text",
                 "valida":["notNull"],
                 "disabled":false,
                 "value":"",
@@ -88,7 +88,7 @@ let jobConfig = {
                 "id":"JobExpiresAt",
                 "name":"Expires At",
                 "dsc":"",
-                "type":"date",
+                "type":"text",
                 "valida":["notNull"],
                 "disabled":false,
                 "value":"",
@@ -104,7 +104,7 @@ let jobConfig = {
         "formControls":[],
         "formInstaceNombre":"frm_job_conteiner",
         "formInstaceId":"N/A",
-        "formInstaceClonId":"frm_job"
+        "formInstaceClonId":"job_form"
     },
     
 }

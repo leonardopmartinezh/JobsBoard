@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="JobBoardModelStoreContainer" CdmEntityContainer="JobBoardEntities">
+    <FunctionImportMapping FunctionImportName="JobsDel" FunctionName="JobBoardModel.Store.JobsDel">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="JobBoardModel.JobsDel_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Msg" ColumnName="Msg" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="JobsSV" FunctionName="JobBoardModel.Store.JobsSV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="JobBoardModel.JobsSV_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Msg" ColumnName="Msg" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="JobsGET" FunctionName="JobBoardModel.Store.JobsGET">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="JobBoardModel.JobsGET_Result">
+          <ScalarProperty Name="JobID" ColumnName="JobID" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="JobCreatedAt" ColumnName="JobCreatedAt" />
+          <ScalarProperty Name="JobExpiresAt" ColumnName="JobExpiresAt" />
+          <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="JobsList" FunctionName="JobBoardModel.Store.JobsList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="JobBoardModel.JobsList_Result">
+          <ScalarProperty Name="RowNum" ColumnName="RowNum" />
+          <ScalarProperty Name="JobID" ColumnName="JobID" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="JobCreatedAt" ColumnName="JobCreatedAt" />
+          <ScalarProperty Name="JobExpiresAt" ColumnName="JobExpiresAt" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="JobsListByID" FunctionName="JobBoardModel.Store.JobsListByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="JobBoardModel.JobsListByID_Result">
+          <ScalarProperty Name="JobID" ColumnName="JobID" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="JobCreatedAt" ColumnName="JobCreatedAt" />
+          <ScalarProperty Name="JobExpiresAt" ColumnName="JobExpiresAt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

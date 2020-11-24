@@ -1,1 +1,78 @@
-<div>Crga jobs Template</div>
+
+        <div class="">
+            <div class="row">
+              <div class="col-md-7">
+                <div class="card">
+                  <div class="card-header card-header-primary">
+                    <h4 class="card-title">Jobs Form</h4>
+                    <p class="card-category">Fill in the form data</p>
+                  </div>
+                  <div id="job_form" class="card-body">
+                    <form>
+                      <div class="row">
+                        <div class="col-md-12 mb-4">
+                            <input v-bind:id="formBody[1].id" type="text" v-bind:value="formBody[1].value" v-model="formBody[1].value" class="form-control" v-bind:placeholder="formBody[1].name" disabled>
+                        </div>
+                        <div class="col-md-12 mb-4">
+                            <input v-bind:id="formBody[2].id" type="text" v-bind:value="formBody[2].value" v-model="formBody[2].value" class="form-control" v-bind:placeholder="formBody[2].name">
+                        </div>
+                        <div class="col-md-12 mb-4">
+                            <textarea v-bind:id="formBody[3].id" class="form-control" rows="5" v-model="formBody[3].value" v-bind:placeholder="formBody[3].name">{{formBody[3].value}}</textarea>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <input type="text" v-bind:id="formBody[4].id" v-bind:value="formBody[4].value" v-model="formBody[4].value" class="form-control" v-bind:placeholder="formBody[4].name">
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <input type="text" v-bind:id="formBody[5].id" v-bind:value="formBody[5].value" v-model="formBody[5].value" class="form-control" v-bind:placeholder="formBody[5].name">
+                        </div>
+                    </div>
+                      <button type="submit" v-on:click="saveFunc()" class="btn btn-primary pull-right">Save Data</button>
+                      <button type="submit" v-on:click="newFunc()" class="btn pull-right">New</button>
+                      <div class="clearfix"></div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                    <!-- --------------------------------------------------------------------------------------- -->
+                    <!-- --------------------------------------------------------------------------------------- -->
+                    <!-- --------------------------------------------------------------------------------------- -->
+                    <!-- --------------------------------------------------------------------------------------- -->
+                    
+              <div class="card">
+                <div class="card-header card-header-tabs card-header-primary">
+                  <h4 class="card-title">Jobs List</h4>
+                  <p class="card-category">Select the data you want to edit </p>                  
+                </div>
+                <div class="card-body">
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="job_list">
+                      <table class="table">
+                        <tbody>
+                          <tr v-for='d in listData' :key="listData.JobID" >
+                            <td style="width: 100%;" >{{d.JobTitle}}<p class="text-muted">Created At: {{d.JobCreatedAt}}</p></td>
+                            <td class="td-actions text-right">
+                              <button type="button" v-on:click="editFunc(d.JobID)" rel="tooltip" title="" class="btn btn-primary btn-link btn-sm" data-original-title="Edit Task">
+                                <i class="material-icons">edit</i>
+                              </button>
+                              <button type="button" v-on:click="elimFunc(d.JobID)" rel="tooltip" title="" class="btn btn-danger btn-link btn-sm" data-original-title="Remove">
+                                <i class="material-icons">close</i>
+                              </button>
+                            </td>
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+                    <!-- --------------------------------------------------------------------------------------- -->
+                    <!-- --------------------------------------------------------------------------------------- -->
+                    <!-- --------------------------------------------------------------------------------------- -->
+                    <!-- --------------------------------------------------------------------------------------- -->
+              </div>
+            </div>
+          </div>
+        

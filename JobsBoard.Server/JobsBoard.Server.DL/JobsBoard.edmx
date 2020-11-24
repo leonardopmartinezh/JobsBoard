@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="JobBoardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="JobBoardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <Function Name="JobsDel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="JobID" Type="int" Mode="In" />
           <Parameter Name="EstaActivo" Type="bit" Mode="In" />
@@ -23,8 +23,8 @@
           <Parameter Name="JobID" Type="int" Mode="In" />
           <Parameter Name="JobTitle" Type="varchar" Mode="In" />
           <Parameter Name="JobDescription" Type="varchar(max)" Mode="In" />
-          <Parameter Name="JobCreatedAt" Type="datetime" Mode="In" />
-          <Parameter Name="JobExpiresAt" Type="datetime" Mode="In" />
+          <Parameter Name="JobCreatedAt" Type="varchar" Mode="In" />
+          <Parameter Name="JobExpiresAt" Type="varchar" Mode="In" />
           <Parameter Name="UpdUsuario" Type="int" Mode="In" />
         </Function>
         <EntityContainer Name="JobBoardModelStoreContainer" />
@@ -38,8 +38,16 @@
             <Parameter Name="EstaActivo" Mode="In" Type="Boolean" />
             <Parameter Name="UpdUsuario" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="JobsGET" ReturnType="Collection(JobBoardModel.JobsGET_Result)">
+          <FunctionImport Name="JobsSV" ReturnType="Collection(JobBoardModel.JobsSV_Result)">
             <Parameter Name="JobID" Mode="In" Type="Int32" />
+            <Parameter Name="JobTitle" Mode="In" Type="String" />
+            <Parameter Name="JobDescription" Mode="In" Type="String" />
+            <Parameter Name="JobCreatedAt" Mode="In" Type="String" />
+            <Parameter Name="JobExpiresAt" Mode="In" Type="String" />
+            <Parameter Name="UpdUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="JobsGET" ReturnType="Collection(JobBoardModel.JobsGET_Result)">
+          <Parameter Name="JobID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="JobsList" ReturnType="Collection(JobBoardModel.JobsList_Result)">
             <Parameter Name="Paginacion" Mode="In" Type="Int32" />
@@ -47,43 +55,35 @@
           <FunctionImport Name="JobsListByID" ReturnType="Collection(JobBoardModel.JobsListByID_Result)">
             <Parameter Name="JobID" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="JobsSV" ReturnType="Collection(JobBoardModel.JobsSV_Result)">
-            <Parameter Name="JobID" Mode="In" Type="Int32" />
-            <Parameter Name="JobTitle" Mode="In" Type="String" />
-            <Parameter Name="JobDescription" Mode="In" Type="String" />
-            <Parameter Name="JobCreatedAt" Mode="In" Type="DateTime" />
-            <Parameter Name="JobExpiresAt" Mode="In" Type="DateTime" />
-            <Parameter Name="UpdUsuario" Mode="In" Type="Int32" />
-          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="JobsDel_Result">
+          <Property Type="Int32" Name="ID" Nullable="true" />
+          <Property Type="String" Name="Msg" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="JobsSV_Result">
           <Property Type="Int32" Name="ID" Nullable="true" />
           <Property Type="String" Name="Msg" Nullable="true" />
         </ComplexType>
         <ComplexType Name="JobsGET_Result">
           <Property Type="Int32" Name="JobID" Nullable="false" />
           <Property Type="String" Name="JobTitle" Nullable="false" MaxLength="256" />
-          <Property Type="DateTime" Name="JobCreatedAt" Nullable="false" Precision="23" />
-          <Property Type="DateTime" Name="JobExpiresAt" Nullable="false" Precision="23" />
+          <Property Type="String" Name="JobCreatedAt" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="JobExpiresAt" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="JobDescription" Nullable="false" />
         </ComplexType>
         <ComplexType Name="JobsList_Result">
           <Property Type="Int64" Name="RowNum" Nullable="true" />
           <Property Type="Int32" Name="JobID" Nullable="false" />
           <Property Type="String" Name="JobTitle" Nullable="false" MaxLength="256" />
-          <Property Type="DateTime" Name="JobCreatedAt" Nullable="false" Precision="23" />
-          <Property Type="DateTime" Name="JobExpiresAt" Nullable="false" Precision="23" />
+          <Property Type="String" Name="JobCreatedAt" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="JobExpiresAt" Nullable="true" MaxLength="30" />
           <Property Type="Int32" Name="Total" Nullable="true" />
         </ComplexType>
         <ComplexType Name="JobsListByID_Result">
           <Property Type="Int32" Name="JobID" Nullable="false" />
           <Property Type="String" Name="JobTitle" Nullable="false" MaxLength="256" />
-          <Property Type="DateTime" Name="JobCreatedAt" Nullable="false" Precision="23" />
-          <Property Type="DateTime" Name="JobExpiresAt" Nullable="false" Precision="23" />
-        </ComplexType>
-        <ComplexType Name="JobsSV_Result">
-          <Property Type="Int32" Name="ID" Nullable="true" />
-          <Property Type="String" Name="Msg" Nullable="true" />
+          <Property Type="String" Name="JobCreatedAt" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="JobExpiresAt" Nullable="true" MaxLength="30" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -94,6 +94,14 @@
           <FunctionImportMapping FunctionImportName="JobsDel" FunctionName="JobBoardModel.Store.JobsDel">
             <ResultMapping>
               <ComplexTypeMapping TypeName="JobBoardModel.JobsDel_Result">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Msg" ColumnName="Msg" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="JobsSV" FunctionName="JobBoardModel.Store.JobsSV">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JobBoardModel.JobsSV_Result">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Msg" ColumnName="Msg" />
               </ComplexTypeMapping>
@@ -129,14 +137,6 @@
                 <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
                 <ScalarProperty Name="JobCreatedAt" ColumnName="JobCreatedAt" />
                 <ScalarProperty Name="JobExpiresAt" ColumnName="JobExpiresAt" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="JobsSV" FunctionName="JobBoardModel.Store.JobsSV">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="JobBoardModel.JobsSV_Result">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Msg" ColumnName="Msg" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

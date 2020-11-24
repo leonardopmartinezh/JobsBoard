@@ -1,0 +1,5 @@
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.EL\bin\Debug\JobsBoard.Server.EL.dll
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.EL\bin\Debug\JobsBoard.Server.EL.pdb
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.EL\obj\Debug\JobsBoard.Server.EL.dll
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.EL\obj\Debug\JobsBoard.Server.EL.pdb
+D:\Projects\JobsBoard\JobsBoard.Server\JobsBoard.Server.EL\obj\Debug\JobsBoard.Server.EL.csprojResolveAssemblyReference.cache

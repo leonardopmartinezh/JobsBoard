@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JobBoardModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="JobsDel" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="JobID" Type="int" Mode="In" />
+    <Parameter Name="EstaActivo" Type="bit" Mode="In" />
+    <Parameter Name="UpdUsuario" Type="int" Mode="In" />
+  </Function>
+  <Function Name="JobsGET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="JobID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="JobsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Paginacion" Type="int" Mode="In" />
+  </Function>
+  <Function Name="JobsListByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="JobID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="JobsSV" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="JobID" Type="int" Mode="In" />
+    <Parameter Name="JobTitle" Type="varchar" Mode="In" />
+    <Parameter Name="JobDescription" Type="varchar(max)" Mode="In" />
+    <Parameter Name="JobCreatedAt" Type="varchar" Mode="In" />
+    <Parameter Name="JobExpiresAt" Type="varchar" Mode="In" />
+    <Parameter Name="UpdUsuario" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="JobBoardModelStoreContainer" />
+</Schema>
