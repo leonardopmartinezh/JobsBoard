@@ -9,6 +9,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+<<<<<<< HEAD
     <FunctionImportMapping FunctionImportName="JobsSV" FunctionName="JobBoardModel.Store.JobsSV">
       <ResultMapping>
         <ComplexTypeMapping TypeName="JobBoardModel.JobsSV_Result">
@@ -17,6 +18,8 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+=======
+>>>>>>> aadb797a297bcc9aa08a43a31591d53a4d40aa37
     <FunctionImportMapping FunctionImportName="JobsGET" FunctionName="JobBoardModel.Store.JobsGET">
       <ResultMapping>
         <ComplexTypeMapping TypeName="JobBoardModel.JobsGET_Result">
@@ -50,5 +53,16 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+<<<<<<< HEAD
+=======
+    <FunctionImportMapping FunctionImportName="JobsSV" FunctionName="JobBoardModel.Store.JobsSV">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="JobBoardModel.JobsSV_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Msg" ColumnName="Msg" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+>>>>>>> aadb797a297bcc9aa08a43a31591d53a4d40aa37
   </EntityContainerMapping>
 </Mapping>

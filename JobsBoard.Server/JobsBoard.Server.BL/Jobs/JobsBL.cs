@@ -123,6 +123,7 @@ namespace JobsBoard.Server.BL
             {
                 Re.UsMsj = val;
                 Re.UsCuentaID = -1;
+<<<<<<< HEAD
             }
 
             return Re;
@@ -157,6 +158,8 @@ namespace JobsBoard.Server.BL
 
                 Re.UsToken = Data.UsToken;
                 Re.UsCuentaID = Data.UsCuentaID;
+=======
+>>>>>>> aadb797a297bcc9aa08a43a31591d53a4d40aa37
             }
         
 
