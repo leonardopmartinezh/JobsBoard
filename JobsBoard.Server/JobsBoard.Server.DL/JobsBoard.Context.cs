@@ -100,37 +100,5 @@ namespace JobsBoard.Server.DL
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<JobsListByID_Result>("JobsListByID", jobIDParameter);
         }
-<<<<<<< HEAD
-=======
-    
-        public virtual ObjectResult<JobsSV_Result> JobsSV(Nullable<int> jobID, string jobTitle, string jobDescription, string jobCreatedAt, string jobExpiresAt, Nullable<int> updUsuario)
-        {
-            var jobIDParameter = jobID.HasValue ?
-                new ObjectParameter("JobID", jobID) :
-                new ObjectParameter("JobID", typeof(int));
-    
-            var jobTitleParameter = jobTitle != null ?
-                new ObjectParameter("JobTitle", jobTitle) :
-                new ObjectParameter("JobTitle", typeof(string));
-    
-            var jobDescriptionParameter = jobDescription != null ?
-                new ObjectParameter("JobDescription", jobDescription) :
-                new ObjectParameter("JobDescription", typeof(string));
-    
-            var jobCreatedAtParameter = jobCreatedAt != null ?
-                new ObjectParameter("JobCreatedAt", jobCreatedAt) :
-                new ObjectParameter("JobCreatedAt", typeof(string));
-    
-            var jobExpiresAtParameter = jobExpiresAt != null ?
-                new ObjectParameter("JobExpiresAt", jobExpiresAt) :
-                new ObjectParameter("JobExpiresAt", typeof(string));
-    
-            var updUsuarioParameter = updUsuario.HasValue ?
-                new ObjectParameter("UpdUsuario", updUsuario) :
-                new ObjectParameter("UpdUsuario", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<JobsSV_Result>("JobsSV", jobIDParameter, jobTitleParameter, jobDescriptionParameter, jobCreatedAtParameter, jobExpiresAtParameter, updUsuarioParameter);
-        }
->>>>>>> aadb797a297bcc9aa08a43a31591d53a4d40aa37
     }
 }

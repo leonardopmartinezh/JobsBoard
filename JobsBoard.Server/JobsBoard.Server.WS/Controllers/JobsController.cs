@@ -70,11 +70,7 @@ namespace JobsBoard.Server.WS.Controllers
             return Ok(Res);
         }
 
-<<<<<<< HEAD
         /*......JobsSV.....*/
-=======
-        /*......JobsGET.....*/
->>>>>>> aadb797a297bcc9aa08a43a31591d53a4d40aa37
         [ResponseType(typeof(ReplyEL))]
         [Route("JobsSV")]
         [HttpPost]
@@ -90,7 +86,6 @@ namespace JobsBoard.Server.WS.Controllers
 
             return Ok(Res);
         }
-<<<<<<< HEAD
 
         /*......JobsDel.....*/
         [ResponseType(typeof(ReplyEL))]
@@ -108,7 +103,5 @@ namespace JobsBoard.Server.WS.Controllers
 
             return Ok(Res);
         }
-=======
->>>>>>> aadb797a297bcc9aa08a43a31591d53a4d40aa37
     }
 }

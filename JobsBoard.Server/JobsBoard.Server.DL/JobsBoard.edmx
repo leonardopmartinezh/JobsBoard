@@ -38,7 +38,6 @@
             <Parameter Name="EstaActivo" Mode="In" Type="Boolean" />
             <Parameter Name="UpdUsuario" Mode="In" Type="Int32" />
           </FunctionImport>
-<<<<<<< HEAD
           <FunctionImport Name="JobsSV" ReturnType="Collection(JobBoardModel.JobsSV_Result)">
             <Parameter Name="JobID" Mode="In" Type="Int32" />
             <Parameter Name="JobTitle" Mode="In" Type="String" />
@@ -47,28 +46,15 @@
             <Parameter Name="JobExpiresAt" Mode="In" Type="String" />
             <Parameter Name="UpdUsuario" Mode="In" Type="Int32" />
           </FunctionImport>
-=======
->>>>>>> aadb797a297bcc9aa08a43a31591d53a4d40aa37
           <FunctionImport Name="JobsGET" ReturnType="Collection(JobBoardModel.JobsGET_Result)">
           <Parameter Name="JobID" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="JobsList" ReturnType="Collection(JobBoardModel.JobsList_Result)">
-          <Parameter Name="Paginacion" Mode="In" Type="Int32" />
+            <Parameter Name="Paginacion" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="JobsListByID" ReturnType="Collection(JobBoardModel.JobsListByID_Result)">
-          <Parameter Name="JobID" Mode="In" Type="Int32" />
-          </FunctionImport>
-<<<<<<< HEAD
-=======
-          <FunctionImport Name="JobsSV" ReturnType="Collection(JobBoardModel.JobsSV_Result)">
             <Parameter Name="JobID" Mode="In" Type="Int32" />
-            <Parameter Name="JobTitle" Mode="In" Type="String" />
-            <Parameter Name="JobDescription" Mode="In" Type="String" />
-            <Parameter Name="JobCreatedAt" Mode="In" Type="String" />
-            <Parameter Name="JobExpiresAt" Mode="In" Type="String" />
-            <Parameter Name="UpdUsuario" Mode="In" Type="Int32" />
           </FunctionImport>
->>>>>>> aadb797a297bcc9aa08a43a31591d53a4d40aa37
         </EntityContainer>
         <ComplexType Name="JobsDel_Result">
           <Property Type="Int32" Name="ID" Nullable="true" />
